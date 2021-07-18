@@ -1,6 +1,6 @@
 :root {
-    --primary-color: rgb(55, 102, 146);
-    --secodary-color: rgb(247, 172, 34);
+    --primary-color: #22223B;
+    --secodary-color: #C9ADA7;
     --dark-color: rgb(65, 63, 63);
     --white-color: rgb(225, 236, 229);
 }
@@ -13,8 +13,20 @@ nav {
     background-color: var(--dark-color);
 }
 
+.navbar-dark {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-outline-dark {
+    border-color: var(--primary-color);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color) !important;
+}
+
 footer {
-    background-color: var(--dark-color);
+    background-color: var(--primary-color);
 }
 
 h1,
