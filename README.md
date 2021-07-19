@@ -1,6 +1,6 @@
 
 
-    <img src="img/LoanWolf/LoanWolf.svg" class="img-fluid center-block d-block mx-auto my-auto"
+    <img src="img/LoanWolf/logo_large.png" class="img-fluid center-block d-block mx-auto my-auto"
                         width="700" alt="Loan Wolf Logo" />
 
     # Loan Wolf
