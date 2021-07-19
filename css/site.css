@@ -17,6 +17,19 @@ nav {
     background-color: var(--primary-color) !important;
 }
 
+.form-bg {
+    background-color: #9A8C98;
+}
+
+.table-bg {
+    background-color: var(--primary-color);
+    color: #F2E9E4;
+}
+
+.form-text {
+    color: #F2E9E4;
+}
+
 .btn-outline-dark {
     border-color: var(--primary-color);
 }

@@ -3,7 +3,7 @@
 
 <head>
     <!-- Change App Name Here -->
-    <title>App Name: A Coding Project by Razvan Roman</title>
+    <title>Loan Wolf: A Coding Project by Razvan Roman</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,8 +26,8 @@
         <div class="container-fluid">
             <!-- Change App Name Here -->
             <a class="navbar-brand" href="index.html"><img src="img/RRLogoWhite.svg"
-                    class="d-inline-block align-text-center" width="30" height="30" alt="Razvan Roman Logo"> App
-                Name</a>
+                    class="d-inline-block align-text-center" width="30" height="30" alt="Razvan Roman Logo"> Loan
+                Wolf</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,9 +55,79 @@
         </div>
     </nav>
     <!-- Main Section -->
-    <main class="flex-shrink--">
+    <main class="flex-shrink-0">
         <div class="container">
-
+            <div class="row px-5">
+                <h1>Loan Calculator</h1>
+                <div class="col form-bg form-text">
+                    <form class="mx-2 py-2">
+                        <div class="row">
+                            <label for="loanAmount" class="input-label mb-2">Loan Amount</label>
+                            <input id="loanAmount" type="number" class="form-control"
+                                placeholder="Enter amount to borrow" aria-label="Loan Amount" min="1000">
+                        </div>
+                        <div class="row mt-2">
+                            <label for="payments" class="input-label mb-2">Payments</label>
+                            <input id="payments" type="number" class="form-control" placeholder="Payments"
+                                aria-label="Payments" min="1">
+                        </div>
+                        <div class="row mt-2">
+                            <label for="rate" class="input-label mb-2">Rate</label>
+                            <input id="rate" type="number" class="form-control" placeholder="Rate" aria-label="Rate"
+                                min="0">
+                        </div>
+                        <div class="row mt-2 d-flex justify-content-end">
+                            <button class="btn btn-outline-dark w-auto">Wolf It!</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="row d-flex justify-content-center">
+                        <h3 class="w-auto"><em>Your Monthly Payments</em></h3>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <h2 class="display-1 w-auto"><span class="fw-bold" id="monthlyPayment">$269.53</span></h2>
+                    </div>
+                    <div class="row d-flex justify-content-between px-2">
+                        <div class="col pe-5">
+                            <p class="lead w-auto" >Total Principal</p>
+                            <p class="lead w-auto" >Total Interest</p>
+                            <p class="lead w-auto" >Total Cost</p>
+                        </div>
+                        <div class="col">
+                            <p class="lead w-auto" id="totalPrincipal">$15,000.00</p>
+                            <p class="lead w-auto" id="totalInterest">$1,171.82</p>
+                            <p class="lead w-auto"> <span class="fw-bold" id="totalCost">$16,171.82</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="table-responsive col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="table-bg">
+                                <th scope="col">Month</th>
+                                <th scope="col">Payment</th>
+                                <th scope="col">Principal</th>
+                                <th scope="col">Interest</th>
+                                <th scope="col">Total Interest</th>
+                                <th scope="col">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>$269.53</td>
+                                <td>$232.03</td>
+                                <td>$37.5</td>
+                                <td>$37.5</td>
+                                <td>$14,767.97</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
     <!-- Footer Section -->
