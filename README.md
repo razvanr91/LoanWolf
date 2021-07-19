@@ -8,4 +8,3 @@ Try It Out
 - https://loan-wolf.netlify.app -
 
 All logos created on https://www.jimdo.com/
-
