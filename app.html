@@ -59,29 +59,47 @@
         <div class="container">
             <div class="row px-5">
                 <h1>Loan Calculator</h1>
-                <div class="col form-bg form-text">
+                <div class="col col-md-12 col-lg-6 form-bg form-text">
                     <form class="mx-2 py-2" id="form">
                         <div class="row">
-                            <label for="loanAmount" class="input-label mb-2">Loan Amount</label>
-                            <input id="loanAmount" type="number" class="form-control"
-                                placeholder="Enter amount to borrow" aria-label="Loan Amount" min="1000">
+                            <label for="loanAmount" class="input-label mb-2">Loan
+                                Amount</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="currency">£</span>
+                                </div>
+                                <input id="loanAmount" type="number" class="form-control" placeholder="eg. 15000"
+                                    aria-label="Loan Amount" min="1000" aria-describedby="currency">
+                            </div>
                         </div>
                         <div class="row mt-2">
-                            <label for="payments" class="input-label mb-2">Payments</label>
-                            <input id="payments" type="number" class="form-control" placeholder="Payments"
-                                aria-label="Payments" min="1">
+                            <label for="payments" class="input-label mb-2">Duration</label>
+                            <div class="input-group">
+                                <input id="payments" type="number" class="form-control" placeholder="eg. 60"
+                                    aria-label="Payments" min="1" aria-describedby="months">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="months">Months</span>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row mt-2">
                             <label for="rate" class="input-label mb-2">Rate</label>
-                            <input id="rate" type="number" class="form-control" placeholder="Rate" aria-label="Rate"
-                                min="0">
+                            <div class="input-group">
+                                <input id="rate" type="number" class="form-control" placeholder="eg. 3"
+                                    aria-label="Rate" min="0" aria-describedby="percentage">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="percentage">%</span>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row mt-2 d-flex justify-content-end">
                             <button class="btn btn-outline-dark w-auto" type="button" id="wolfBtn">Wolf It!</button>
                         </div>
                     </form>
                 </div>
-                <div class="col">
+                <div class="col-md-12 col-lg-6">
                     <div class="row d-flex justify-content-center">
                         <h3 class="w-auto"><em>Your Monthly Payments</em></h3>
                     </div>

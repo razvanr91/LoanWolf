@@ -59,10 +59,10 @@ function emptyElements() {
 
 function printResults(payments, rate, loanAmount) {
     // return values to top elements
-    monthlyPaymentElement.innerHTML += `$${monthlyPayment.toFixed(2)}`;
-    totalPrincipalElement.innerHTML += `$${loanAmount}`;
-    totalInterestElement.innerHTML += `$${totalInterest.toFixed(2)}`;
-    totalCostElement.innerHTML += `$${totalCost.toFixed(2)}`
+    monthlyPaymentElement.innerHTML += `£${monthlyPayment.toFixed(2)}`;
+    totalPrincipalElement.innerHTML += `£${loanAmount}`;
+    totalInterestElement.innerHTML += `£${totalInterest.toFixed(2)}`;
+    totalCostElement.innerHTML += `£${totalCost.toFixed(2)}`
 
     // create variables to keep up with payments
     let balance = loanAmount;
@@ -76,11 +76,11 @@ function printResults(payments, rate, loanAmount) {
         tableBody.innerHTML += `
             <tr>
                 <th scope="row">${i}</th> 
-                <td>$${monthlyPayment.toFixed(2)}</td> 
-                <td>$${principal.toFixed(2)}</td> 
-                <td>$${currentInterest.toFixed(2)}</td>
-                <td>$${totalInterestPaid.toFixed(2)}</td>
-                <td>$${balance.toFixed(2)}</td>
+                <td>£${monthlyPayment.toFixed(2)}</td> 
+                <td>£${principal.toFixed(2)}</td> 
+                <td>£${currentInterest.toFixed(2)}</td>
+                <td>£${totalInterestPaid.toFixed(2)}</td>
+                <td>£${balance.toFixed(2)}</td>
             </tr>
         `;
 
