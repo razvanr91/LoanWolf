@@ -1,5 +1,4 @@
 ![Loan Wolf Logo](img/LoanWolf/LoanWolf.svg)
-<<<<<<< HEAD
 
 
 # Loan Wolf
