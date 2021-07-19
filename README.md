@@ -1,7 +1,5 @@
 
-
-    <img src="img/LoanWolf/LoanWolf.svg" class="img-fluid center-block d-block mx-auto my-auto"
-                        width="700" alt="Loan Wolf Logo">
+    [](https://github.com/razvanr91/LoanWolf/blob/main/img/LoanWolf/logo_small.png?raw=true)
 
     # Loan Wolf
     The Loan Wolf can tell you the amortization schedule for a simple interest loan.
