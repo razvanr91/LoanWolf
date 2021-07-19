@@ -60,7 +60,7 @@
             <div class="row px-5">
                 <h1>Loan Calculator</h1>
                 <div class="col form-bg form-text">
-                    <form class="mx-2 py-2">
+                    <form class="mx-2 py-2" id="form">
                         <div class="row">
                             <label for="loanAmount" class="input-label mb-2">Loan Amount</label>
                             <input id="loanAmount" type="number" class="form-control"
@@ -77,7 +77,7 @@
                                 min="0">
                         </div>
                         <div class="row mt-2 d-flex justify-content-end">
-                            <button class="btn btn-outline-dark w-auto">Wolf It!</button>
+                            <button class="btn btn-outline-dark w-auto" type="button" id="wolfBtn">Wolf It!</button>
                         </div>
                     </form>
                 </div>
@@ -86,18 +86,18 @@
                         <h3 class="w-auto"><em>Your Monthly Payments</em></h3>
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <h2 class="display-1 w-auto"><span class="fw-bold" id="monthlyPayment">$269.53</span></h2>
+                        <h2 class="display-1 w-auto"><span class="fw-bold" id="monthlyPayment"></span></h2>
                     </div>
                     <div class="row d-flex justify-content-between px-2">
                         <div class="col pe-5">
-                            <p class="lead w-auto" >Total Principal</p>
-                            <p class="lead w-auto" >Total Interest</p>
-                            <p class="lead w-auto" >Total Cost</p>
+                            <p class="lead w-auto">Total Principal</p>
+                            <p class="lead w-auto">Total Interest</p>
+                            <p class="lead w-auto">Total Cost</p>
                         </div>
                         <div class="col">
-                            <p class="lead w-auto" id="totalPrincipal">$15,000.00</p>
-                            <p class="lead w-auto" id="totalInterest">$1,171.82</p>
-                            <p class="lead w-auto"> <span class="fw-bold" id="totalCost">$16,171.82</span></p>
+                            <p class="lead w-auto" id="totalPrincipal"></p>
+                            <p class="lead w-auto" id="totalInterest"></p>
+                            <p class="lead w-auto"> <span class="fw-bold" id="totalCost"></span></p>
                         </div>
                     </div>
                 </div>
@@ -107,23 +107,22 @@
                     <table class="table table-striped">
                         <thead>
                             <tr class="table-bg">
+                                <!-- Month Number -->
                                 <th scope="col">Month</th>
+                                <!-- Monthly Payment -->
                                 <th scope="col">Payment</th>
+                                <!-- Principal -->
                                 <th scope="col">Principal</th>
+                                <!-- Interest -->
                                 <th scope="col">Interest</th>
+                                <!-- Total Interest -->
                                 <th scope="col">Total Interest</th>
+                                <!-- Remaining Ballance -->
                                 <th scope="col">Balance</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>$269.53</td>
-                                <td>$232.03</td>
-                                <td>$37.5</td>
-                                <td>$37.5</td>
-                                <td>$14,767.97</td>
-                            </tr>
+                        <tbody id="tableBody">
+
                         </tbody>
                     </table>
                 </div>
