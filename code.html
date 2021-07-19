@@ -3,7 +3,7 @@
 
 <head>
     <!-- Change App Name Here -->
-    <title>App Name: A Coding Project by Razvan Roman</title>
+    <title>Loan Wolf: A Coding Project by Razvan Roman</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,8 +27,8 @@
         <div class="container-fluid">
             <!-- Change App Name Here -->
             <a class="navbar-brand" href="index.html"><img src="img/RRLogoWhite.svg"
-                    class="d-inline-block align-text-center" width="30" height="30" alt="Razvan Roman Logo"> App
-                Name</a>
+                    class="d-inline-block align-text-center" width="30" height="30" alt="Razvan Roman Logo"> Loan
+                Wolf</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -63,16 +63,147 @@
                 <div class="col-lg-8">
                     <!-- Prism does not stack well -->
                     <pre ref="pre"><code class="language-javascript line-numbers" ref="code">
-                        //Call Hello World
-                        function HelloWorld() {
-                            alert("Hello World");
+                        // values for end results
+
+                        let monthlyPayment = 0;
+                        let totalPrincipal = 0;
+                        let totalInterest = 0;
+                        let totalCost = 0;
+
+                        // get other elements
+
+                        let button = document.getElementById("wolfBtn");
+                        let monthlyPaymentElement = document.getElementById("monthlyPayment");
+                        let totalPrincipalElement = document.getElementById("totalPrincipal");
+                        let totalInterestElement = document.getElementById("totalInterest");
+                        let totalCostElement = document.getElementById("totalCost");
+                        let tableBody = document.getElementById("tableBody");
+
+
+                        function start() {
+                            // get values
+                            let loanAmount = document.getElementById("loanAmount").value;
+                            let payments = document.getElementById("payments").value;
+                            let rate = document.getElementById("rate").value;
+
+                            // convert values to integers
+                            loanAmount = Number.parseInt(loanAmount);
+                            payments = Number.parseInt(payments);
+                            rate = Number.parseInt(rate);
+
+                            // check if conversion was successfull
+
+                            let success = Number.isInteger(loanAmount) && Number.isInteger(payments) &&
+                            Number.isInteger(rate) ? true : false;
+
+                            if (!success) {
+                                console.log(`${loanAmount} ${payments} ${rate}`)
+                                alert("You need to enter integer values in order to continue...");
+                            } else {
+                                getNumbers(loanAmount, payments, rate);
+                                emptyElements();
+                                printResults(payments, rate, loanAmount);
+                            }
                         }
+
+                        function getNumbers(loanAmount, payments, rate) {
+                            // calculate rates
+                            monthlyPayment = ((loanAmount) * (rate / 1200) / (1 - (Math.pow(1 + rate / 1200, -payments))));
+                            totalPrincipal = loanAmount;
+                            totalCost = (monthlyPayment * payments);
+                            totalInterest = (totalCost - totalPrincipal);
+                        }
+
+                        // empty all elements for next use
+                        function emptyElements() {
+                            monthlyPaymentElement.innerHTML = "";
+                            totalPrincipalElement.innerHTML = "";
+                            totalInterestElement.innerHTML = "";
+                            totalCostElement.innerHTML = "";
+                            tableBody.innerHTML = "";
+                        }
+
+                        function printResults(payments, rate, loanAmount) {
+                            // return values to top elements
+                            monthlyPaymentElement.innerHTML += `$${monthlyPayment.toFixed(2)}`;
+                            totalPrincipalElement.innerHTML += `$${loanAmount}`;
+                            totalInterestElement.innerHTML += `$${totalInterest.toFixed(2)}`;
+                            totalCostElement.innerHTML += `$${totalCost.toFixed(2)}`
+
+                            // create variables to keep up with payments
+                            let balance = loanAmount;
+                            let currentInterest = balance * (rate / 1200);
+                            let principal = monthlyPayment - currentInterest;
+                            let totalInterestPaid = currentInterest;
+                            balance -= principal;
+
+                            // insert values in table
+                            for (let i = 1; i <= payments; i++) { tableBody.innerHTML +=` <tr>
+                                <th scope="row">${i}</th>
+                                <td>$${monthlyPayment.toFixed(2)}</td>
+                                <td>$${principal.toFixed(2)}</td>
+                                <td>$${currentInterest.toFixed(2)}</td>
+                                <td>$${totalInterestPaid.toFixed(2)}</td>
+                                <td>$${balance.toFixed(2)}</td>
+                                </tr>
+                                `;
+
+                                // update values
+                                currentInterest = balance * (rate / 1200);
+                                principal = monthlyPayment - currentInterest;
+                                totalInterestPaid += currentInterest;
+                                balance -= principal;
+                            }
+                        }
+
+                            button.addEventListener('click', start);
                     </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that display an alert with the "Hello World" message</p>
+                    <p>The Code is structured in four functions</p>
+                    <p class="lead border-bottom border-1 pb-2">First we select all the elements we need and create some
+                        variables to help us later with the calculations.</p>
+                    <h2>start</h2>
+                    <p class="lead border-bottom border-1 pb-2"><span class="fw-bold">Start</span> is the main function.
+                        First we get the values from the
+                        <span class="fw-bold">form</span> and then we <span class="fw-bold">parse</span> the values to
+                        <span class="fw-bold">integers</span>.
+                        Next, using the <span class="fw-bold">ternary</span> operator we check if the <span
+                            class="fw-bold">values</span> have been
+                        successfully parsed. If any of them was not, we return an <span class="fw-bold">alert</span>. If
+                        everything goes well, we then call
+                        the <span class="fw-bold">getNumbers</span> function where we pass in the values that we <span
+                            class="fw-bold">parsed</span> earlier, followed by
+                        the <span class="fw-bold">emptyElements</span> function and we end with the <span
+                            class="fw-bold">printResults</span> where we pass the same values.
+                    </p>
+                    <h2>getNumbers</h2>
+                    <p class="lead border-bottom border-1 pb-2">
+                        In this <span class="fw-bold">function</span> we calculate the rates with the <span
+                            class="fw-bold">formula</span> provided, and we save the
+                        result in the <span class="fw-bold">global</span> variables we created at the beginning.
+                    </p>
+                    <h2>emptyElements</h2>
+                    <p class="lead border-bottom border-1 pb-2">
+                        This function does exactly that. It empties the <span class="fw-bold">elements</span> where we
+                        need to
+                        insert the data of the calculations.
+                    </p>
+                    <h2>printResults</h2>
+                    <p class="lead">
+                        In this final <span class="fw-bold">function</span> we first populate the elements at the top of
+                        the page
+                        with the main figures, and using the <span class="fw-bold">.toFixed()</span> function we make
+                        sure that
+                        we present to the ui only the amount of decimals specified in the <span class="fw-bold">brackets
+                            ()</span>
+                        . Next, using a <span class="fw-bold">for loop</span> that counts from
+                        <span class="fw-bold">1 to the numbers of payments</span> and on each loop,
+                        using <span class="fw-bold">template strings (``)</span> we create a
+                        <span class="fw-bold">table row element</span> in wich we insert the
+                        values needed, helped again by the <span class="fw-bold">.toFixed()</span> functions.
+                        Lastly, we update the values for the next loop.
+                    </p>
                 </div>
             </div>
         </div>
